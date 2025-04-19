@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estude Verbos</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+    header { background: #2c3e50; color: white; padding: 1rem; text-align: center; }
+    nav { background: #34495e; padding: 0.5rem; text-align: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+    main { padding: 2rem; }
+    section { margin-bottom: 2rem; }
+    .exercise input { margin-top: 0.5rem; }
+    .btn { margin-top: 1rem; padding: 0.5rem 1rem; background: #2980b9; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Estude Verbos</h1>
+    <p>Melhore sua escrita praticando verbos em português</p>
+  </header>
+  <nav>
+    <a href="#teoria">Teoria</a>
+    <a href="#exercicios">Exercícios</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+  <main>
+    <section id="teoria">
+      <h2>Teoria dos Verbos</h2>
+      <p>Os verbos são palavras que indicam ação, estado ou fenômeno. Eles variam em tempo, modo, pessoa e número.</p>
+      <ul>
+        <li><strong>Presente:</strong> Eu estudo, tu estudas</li>
+        <li><strong>Pretérito Perfeito:</strong> Eu estudei, ele estudou</li>
+        <li><strong>Pretérito Imperfeito:</strong> Eu estudava, nós estudávamos</li>
+        <li><strong>Futuro do Presente:</strong> Eu estudarei, eles estudarão</li>
+        <li><strong>Futuro do Pretérito:</strong> Eu estudaria, você estudaria</li>
+      </ul>
+    </section><section id="exercicios">
+  <h2>Exercícios</h2>
+  <div class="exercise">
+    <p>1. Complete: Ontem eu ______ (estudar) muito para a prova.</p>
+    <input type="text" id="q1" placeholder="Resposta">
+  </div>
+  <div class="exercise">
+    <p>2. Complete: Amanhã eles ______ (viajar) para o interior.</p>
+    <input type="text" id="q2" placeholder="Resposta">
+  </div>
+  <div class="exercise">
+    <p>3. Complete: Quando criança, eu ______ (brincar) no quintal.</p>
+    <input type="text" id="q3" placeholder="Resposta">
+  </div>
+  <button class="btn" onclick="checkAnswers()">Verificar</button>
+  <p id="feedback"></p>
+</section>
+
+<section id="quiz">
+  <h2>Quiz Rápido</h2>
+  <p>Escolha o tempo verbal correto: "Se eu tivesse dinheiro, eu ______ uma casa."</p>
+  <select id="quiz1">
+    <option value="">Escolha uma opção</option>
+    <option value="compraria">compraria</option>
+    <option value="comprei">comprei</option>
+    <option value="comprar">comprar</option>
+  </select>
+  <button class="btn" onclick="checkQuiz()">Verificar Quiz</button>
+  <p id="quizFeedback"></p>
+</section>
+
+  </main>  <script>
+    function checkAnswers() {
+      const a1 = document.getElementById("q1").value.trim().toLowerCase();
+      const a2 = document.getElementById("q2").value.trim().toLowerCase();
+      const a3 = document.getElementById("q3").value.trim().toLowerCase();
+      let score = 0;
+      if (a1 === "estudei") score++;
+      if (a2 === "viajarão") score++;
+      if (a3 === "brincava") score++;
+      document.getElementById("feedback").textContent = `Você acertou ${score} de 3.`;
+    }
+
+    function checkQuiz() {
+      const answer = document.getElementById("quiz1").value;
+      const feedback = document.getElementById("quizFeedback");
+      if (answer === "compraria") {
+        feedback.textContent = "Correto! Isso é o futuro do pretérito.";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "Incorreto. A resposta certa é 'compraria'.";
+        feedback.style.color = "red";
+      }
+    }
+  </script></body>
+</html>
